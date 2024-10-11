@@ -1,6 +1,7 @@
 package com.simplilearn.servlet;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -30,10 +31,12 @@ public class LoginHiddenServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userid = request.getParameter("userid");
 		
+		response.setContentType("text/html");
+		
 		PrintWriter out = response.getWriter();
 		out.println("<form action='dashboardHiddenForm' method='post'>");
 		out.println("<input type='hidden' name='userid' id='userid' value='"+userid+"'>");
-		out.println("<input type='submit' value='submit >");
+		out.println("<input type='submit' value='submit >'");
 		out.println("</form>");
 		
 		out.println("<script>document.forms[0].submit();</script>");
